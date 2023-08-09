@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingoAtHome", "BingoAtHome\BingoAtHome.csproj", "{7A795BDE-4950-4FBD-99E1-B404FCC6E3DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BingoAtHome.Domain", "BingoAtHome.Domain\BingoAtHome.Domain.csproj", "{03F6DD64-C41B-4A00-8811-D2A6EB1FF98A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A795BDE-4950-4FBD-99E1-B404FCC6E3DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A795BDE-4950-4FBD-99E1-B404FCC6E3DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A795BDE-4950-4FBD-99E1-B404FCC6E3DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A795BDE-4950-4FBD-99E1-B404FCC6E3DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03F6DD64-C41B-4A00-8811-D2A6EB1FF98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03F6DD64-C41B-4A00-8811-D2A6EB1FF98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03F6DD64-C41B-4A00-8811-D2A6EB1FF98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03F6DD64-C41B-4A00-8811-D2A6EB1FF98A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94711D41-ECA4-4772-B8D5-D20BC7A13D6B}
+	EndGlobalSection
+EndGlobal

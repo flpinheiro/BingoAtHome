@@ -1,0 +1,65 @@
+﻿@page "/"
+@using BingoAtHome.Domain;
+
+<PageTitle>Bingo</PageTitle>
+
+<h1>Bingo</h1>
+
+<MudGrid>
+    <MudItem lg="3">
+        <div class="bigcircle">@bingo.Number</div>
+    </MudItem>
+    <MudItem lg="9">
+        <button class="btn btn-primary" @onclick="Draw">Draw</button>
+        <button class="btn btn-primary" @onclick="Reset">Reset</button>
+    </MudItem>
+</MudGrid>
+
+
+<MudGrid>
+    <MudItem>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan="3">B</td>
+                        <td colspan="3">I</td>
+                        <td colspan="3">N</td>
+                        <td colspan="3">G</td>
+                        <td colspan="3">O</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int line = 0; line < 75 / 5 / 3; line++)
+                    {
+                        <tr>
+                            @for (int column = 0; column < 3 * 5; column++)
+                            {
+                                var ball = line + column * 15 / 3 + 1;
+                                if (bingo.IsDraw(ball))
+                                {
+                                    <td><div class="circle">@ball</div></td>
+
+                                }
+                                else
+                                {
+                                    <td><div class="nocircle"></div></td>
+                                }
+
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </MudItem>
+</MudGrid>
+
+
+@code {
+    private Bingo bingo = new();
+
+    private void Reset() => bingo = new();
+    private void Draw() => bingo.Draw();
+}

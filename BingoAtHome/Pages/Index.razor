@@ -3,22 +3,23 @@
 
 <PageTitle>Bingo</PageTitle>
 
-<h1>Bingo</h1>
-
 <MudGrid>
     <MudItem lg="3">
         <div class="bigcircle">@bingo.Number</div>
+        <MudButton Disabled="@_processing" OnClick="ProcessSomething" Variant="Variant.Filled" Color="Color.Primary">
+            @if (_processing)
+            {
+                <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true" />
+                <MudText Class="ms-2">Drawing next ...</MudText>
+            }
+            else
+            {
+                <MudText>Draw next Number</MudText>
+            }
+        </MudButton>
     </MudItem>
     <MudItem lg="9">
-        <button class="btn btn-primary" @onclick="Draw">Draw</button>
-        <button class="btn btn-primary" @onclick="Reset">Reset</button>
-    </MudItem>
-</MudGrid>
 
-
-<MudGrid>
-    <MudItem>
-        <div>
             <table>
                 <thead>
                     <tr>
@@ -51,15 +52,34 @@
                     }
                 </tbody>
             </table>
-        </div>
 
+
+        <MudButton OnClick="Reset"
+                   Size="Size.Small"
+                   Variant="Variant.Filled"
+                   EndIcon="@Icons.Material.Filled.Replay"
+                   Color="Color.Tertiary">
+            Reset Game
+        </MudButton>
+        <MudSwitch Color="Color.Primary" @bind-Checked=@(actived) Label="Active waiting time" />
     </MudItem>
 </MudGrid>
 
 
 @code {
     private Bingo bingo = new();
+    private bool _processing = false;
+    private Random rnd = new();
+    private bool actived = true;
 
     private void Reset() => bingo = new();
     private void Draw() => bingo.Draw();
+
+    private async Task ProcessSomething()
+    {
+        _processing = true;
+        if(actived) await Task.Delay(rnd.Next(1,5)*1000);
+        _processing = false;
+        bingo.Draw();
+    }
 }
